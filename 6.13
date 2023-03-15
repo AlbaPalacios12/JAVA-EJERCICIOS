@@ -1,0 +1,22 @@
+  Scanner sc = new Scanner(System.in);
+        System.out.println("Escriba una sentencia: ");
+        String sentencia = sc.nextLine();
+        sentencia = sentencia.toLowerCase();
+        String parametro1 = "/*";
+        String parametro2 = "*/";
+        int pos1 = 0;//usamos estas variables
+        int pos2 = 0;
+        int contador = 0; //para no tener que pasar por toda la frase cada vez que se mete en el while
+        while (sentencia.indexOf(parametro1) != -1) { // indexOf cuando es igual a -1 es que ya no encuentra el valor buscado
+            while (contador < sentencia.length()) {
+                pos1 = sentencia.indexOf(parametro1); // indica la posicion del parametro 1
+                pos2 = sentencia.indexOf(parametro2);
+                contador = pos1; //empieza en pos1 para poder coger todos los datos
+                String frase1 = sentencia.substring(0, pos1); // limites de la impresion de la sentencia
+                String frase2 = sentencia.substring(pos2 + 2, sentencia.length());
+                sentencia = frase1 + frase2;
+            }
+        }
+        System.out.println(sentencia);
+    }
+}
